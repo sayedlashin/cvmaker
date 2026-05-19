@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>منشئ السيرة الذاتية ATS</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">CV</div>
+    <div>
+      <h1>منشئ السيرة الذاتية الاحترافية</h1>
+      <p class="subtitle">تنسيق متوافق مع أنظمة تتبع المتقدمين ATS</p>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="template-picker">
+      <label>القالب:</label>
+      <select id="templateSelect">
+        <option value="classic">كلاسيكي</option>
+        <option value="modern">عصري</option>
+        <option value="minimal">بسيط</option>
+      </select>
+    </div>
+    <label class="btn btn-ghost" for="uploadCv">
+      <span>📤 رفع سيرة ذاتية</span>
+      <input type="file" id="uploadCv" accept=".docx,.txt,.json" hidden />
+    </label>
+    <button class="btn btn-primary" id="downloadBtn">⬇️ تحميل Word</button>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="form-panel">
+    <div class="card">
+      <h2>المعلومات الشخصية</h2>
+      <div class="grid-2">
+        <div class="field"><label>الاسم الكامل</label><input id="fullName" type="text" placeholder="مثال: محمد أحمد" /></div>
+        <div class="field"><label>المسمى الوظيفي</label><input id="jobTitle" type="text" placeholder="مهندس برمجيات" /></div>
+        <div class="field"><label>البريد الإلكتروني</label><input id="email" type="email" placeholder="name@example.com" /></div>
+        <div class="field"><label>رقم الهاتف</label><input id="phone" type="tel" placeholder="+966 5xxxxxxxx" /></div>
+        <div class="field"><label>المدينة / الدولة</label><input id="location" type="text" placeholder="الرياض، السعودية" /></div>
+        <div class="field"><label>LinkedIn</label><input id="linkedin" type="text" placeholder="linkedin.com/in/username" /></div>
+      </div>
+      <div class="field"><label>الملخص المهني</label><textarea id="summary" rows="4" placeholder="نبذة مختصرة عن خبراتك ومهاراتك..."></textarea></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h2>الخبرات العملية</h2><button class="btn btn-sm" data-add="experience">+ إضافة</button></div>
+      <div id="experienceList" class="dyn-list"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h2>المؤهلات العلمية</h2><button class="btn btn-sm" data-add="education">+ إضافة</button></div>
+      <div id="educationList" class="dyn-list"></div>
+    </div>
+
+    <div class="card">
+      <h2>المهارات</h2>
+      <div class="field"><label>افصل بين المهارات بفاصلة</label>
+        <input id="skills" type="text" placeholder="JavaScript, إدارة المشاريع, التواصل" />
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>اللغات</h2>
+      <div class="field"><label>افصل بفاصلة (مثال: العربية - متقدم, English - Advanced)</label>
+        <input id="languages" type="text" />
+      </div>
+    </div>
+  </section>
+
+  <section class="preview-panel">
+    <div class="preview-toolbar"><span>📄 المعاينة المباشرة</span></div>
+    <article id="preview" class="cv-paper" dir="auto"></article>
+  </section>
+</main>
+
+<footer class="footer">صُمم لاجتياز أنظمة ATS — تنسيق نظيف بدون جداول أو رسومات معقدة.</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
